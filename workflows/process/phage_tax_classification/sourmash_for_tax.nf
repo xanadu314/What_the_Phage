@@ -10,7 +10,7 @@ process sourmash_for_tax {
     shell:
       """
       for fastafile in ${fasta_dir}/*.fa; do
-        sourmash compute -p ${task.cpus} --scaled 100 -k 21 \${fastafile}
+        sourmash compute -p 28 --scaled 100 -k 21 \${fastafile}
       done
 
       for signature in *.sig; do
