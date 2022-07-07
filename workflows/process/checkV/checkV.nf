@@ -10,9 +10,9 @@ process checkV {
         tuple val(name), path("${name}_results/"), emit: checkV_results_ch optional true
     script:
         """
-        checkv completeness ${fasta} -d ${database} -t ${task.cpus} ${name}_results  
+        checkv completeness ${fasta} -d ${database} -t 28 ${name}_results  
         checkv repeats ${fasta} ${name}_results 
-        checkv contamination ${fasta} -d ${database} -t ${task.cpus} ${name}_results 
+        checkv contamination ${fasta} -d ${database} -t 28 ${name}_results 
         checkv quality_summary ${fasta}  ${name}_results 
         cp ${name}_results/quality_summary.tsv ${name}_quality_summary.tsv 
         """
